@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Creating vehicle...'
+vehicle = Vehicle.new(id: "12262ce6-4b31-40aa-9d31-878849e640c7")
+vehicle.save
+puts 'Finished!'
