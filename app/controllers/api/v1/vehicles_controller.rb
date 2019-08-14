@@ -10,6 +10,7 @@ class Api::V1::VehiclesController < Api::V1::BaseController
     end
   end
 
+
   def destroy
     if @vehicle.destroy
       head :no_content
