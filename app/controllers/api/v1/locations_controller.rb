@@ -13,6 +13,7 @@ class Api::V1::LocationsController < Api::V1::BaseController
     end
   end
 
+
   private
 
   def location_params
