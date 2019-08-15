@@ -1,5 +1,14 @@
 class Api::V1::VehiclesController < Api::V1::BaseController
-  before_action :set_vehicle, only: [:destroy]
+  before_action :set_vehicle, only: [:destroy, :show]
+
+  def index
+    @vehicles = policy_scope(Vehicle)
+  end
+
+  def show
+    # gets filled by before_action
+  end
+
   def create
     @vehicle = Vehicle.new(vehicle_params)
     authorize @vehicle
@@ -9,7 +18,6 @@ class Api::V1::VehiclesController < Api::V1::BaseController
       render_error
     end
   end
-
 
   def destroy
     if @vehicle.destroy
