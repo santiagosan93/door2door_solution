@@ -4,11 +4,15 @@ class Api::V1::LocationsController < Api::V1::BaseController
     @location.vehicle = Vehicle.find(params[:id])
     authorize @location
     if @location.save
+      ActionCable.server.broadcast 'locations',
+        lat: @location.lat,
+        lng: @location.lng
       head :no_content
     else
       render_error
     end
   end
+
 
   private
 
